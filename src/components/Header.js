@@ -1,13 +1,11 @@
-
-import React, { useState, useEffect } from 'react';
+import React from "react";
 
 const Header = (props) => {
   return (
     <div>
-      <h1>Hi frog!</h1>
+      <h1>Emelie Moya</h1>
     </div>
-  )
-}
-
+  );
+};
 
 export default Header;

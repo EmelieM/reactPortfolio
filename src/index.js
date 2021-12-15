@@ -1,29 +1,44 @@
-import React, { useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Redirect
-  } from 'react-router-dom';
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
-import {Header} from "./components";
+import { ChakraProvider } from "@chakra-ui/react";
 
-const App = () => {
-return (
-  <div id="App">
-    <h1>Hello world!</h1>
-    <Header />
-  </div>
-)
+import { Header } from "./components";
 
-}
+const App = ({ Component }) => {
+  return (
+    <div className="App">
+      <ChakraProvider>
+        <Component />
+      </ChakraProvider>
 
+      <Header />
+
+      <nav className="navBar">
+        <Link className="navBarLink" to="/">
+          Home
+        </Link>
+        <Link className="navBarLink" to="/About">
+          About
+        </Link>
+        <Link className="navBarLink" to="/Projects">
+          Projects
+        </Link>
+      </nav>
+    </div>
+  );
+};
 
 ReactDOM.render(
   <Router>
-  <App />
+    <App />
   </Router>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
