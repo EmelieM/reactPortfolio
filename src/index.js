@@ -10,7 +10,7 @@ import {
 
 import { ChakraProvider } from "@chakra-ui/react";
 
-import { Header } from "./components";
+import { Header, Projects, Home, ContactMe, About } from "./components";
 
 const App = ({ Component }) => {
   return (
@@ -25,13 +25,34 @@ const App = ({ Component }) => {
         <Link className="navBarLink" to="/">
           Home
         </Link>
-        <Link className="navBarLink" to="/About">
+        <Link className="navBarLink" to="/about">
           About
         </Link>
-        <Link className="navBarLink" to="/Projects">
+        <Link className="navBarLink" to="/projects">
           Projects
         </Link>
+        <Link className="navBarLink" to="/contactMe">
+          Contact Me
+        </Link>
       </nav>
+
+      <Switch>
+        <Route path="/projects">
+          <Projects />
+        </Route>
+
+        <Route path="/about">
+          <About />
+        </Route>
+
+        <Route path="/contactMe">
+          <ContactMe />
+        </Route>
+
+        <Route path="/home">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 };
